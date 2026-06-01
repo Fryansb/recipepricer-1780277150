@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -e ".[dev]"
+      - run: pip install -r requirements.txt
       - run: black . --check
       - run: isort --check-only .
       - run: mypy app/ --ignore-missing-imports --strict=false || echo "Mypy completed"
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -e ".[dev]"
+      - run: pip install -r requirements.txt
       - run: pytest tests/ -v --tb=short
 
   security:
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -e ".[dev]"
+      - run: pip install -r requirements.txt
       - run: pip install safety bandit -q
       - run: safety check --json || echo "Safety check done"
       - run: bandit -r app/ -ll || echo "Bandit done"
