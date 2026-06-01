@@ -1,0 +1,19 @@
+# RecipePricer API - Task Definition
+
+Crie uma API RESTful em FastAPI chamada "RecipePricer". 
+A API não precisa de banco de dados, deve processar tudo em memória e retornar as respostas.
+
+Objetivo: Um endpoint (POST /calculate-price) que recebe um JSON contendo:
+1. Uma lista de ingredientes (nome, custo da embalagem fechada, peso da embalagem fechada, quantidade usada na receita).
+2. O rendimento da receita (quantas unidades ela gera).
+3. A margem de lucro desejada em porcentagem (ex: 150%).
+
+A API deve calcular e retornar:
+- O custo total da receita (soma de todos os ingredientes).
+- O custo unitário (por unidade gerada).
+- O preço final sugerido de venda com base na margem de lucro.
+
+Requisitos técnicos estritos:
+- O código deve ser assíncrono e utilizar Pydantic para validação severa dos dados de entrada.
+- Tratamento absoluto contra erros de precisão flutuante (arredondamento de centavos).
+- Arquitetura limpa e testes unitários completos usando Pytest.
